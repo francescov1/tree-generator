@@ -1,7 +1,7 @@
 # Tree Generator
 
 This script generates a markdown representation of your current directory structure, resembeling the following:
-
+```
 ├── index.js
 ├── tests
 │ ├── moreTests
@@ -62,6 +62,6 @@ This script generates a markdown representation of your current directory struct
 | | | +-- origin
 | | | | +-- master
 | | +-- tags
-
+```
 
 The structure is saved in `tree.md`.
