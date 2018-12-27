@@ -9,10 +9,11 @@ explore_dir() {
     if [[ $item != "*" && $item != ".[^.]*" ]]; then
       str=""
       if [[ $level != 0 ]]; then
-        for i in $(seq 1 $level); do str+='│   '; done
+        for i in $(seq 1 $level); do str+='|   '; done
       fi
 
-      str="${str}├── ${item}"
+      #str="${str}├── ${item}"
+      str="${str}+-- ${item}"
       echo $str >> ${root}/tree.md
 
       if [[ -d $item ]]; then
@@ -32,11 +33,11 @@ explore_dir 0
 
 # this part replaces the end with a closing branch (├── -> └──)
 # TODO: this could be done cleaner
-last_line=$(grep "." tree.md | tail -1)
-last_line=$(echo "$last_line" | tr ├ └)
-last_line="└─${last_line:2}"
-sed -i '' -e '$ d' tree.md
-echo $last_line >> ${root}/tree.md
+#last_line=$(grep "." tree.md | tail -1)
+#last_line=$(echo "$last_line" | tr ├ └)
+#last_line="└─${last_line:2}"
+#sed -i '' -e '$ d' tree.md
+#echo $last_line >> ${root}/tree.md
 
 echo "The following directory tree can be found in tree.md:"
 cat tree.md
